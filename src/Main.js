@@ -84,6 +84,19 @@ export default function Main() {
   // restaurant 리스트를 불러오기 위한 변수
   const [restaurants, setRestaurants] = useState([])
 
+  // 검색어 변수
+  const [query, setQuery] = useState("");
+
+  // 검색창 지우는 함수
+  function handleClear() {
+    setQuery("");
+  }
+
+  // 검색창 입력값 처리 함수
+  function handleChange(e) {
+    setQuery(e.target.value);
+  }
+
   // 페이지가 로드 될 때 레스토랑 불러오기
   useEffect(
     () => {
@@ -100,7 +113,7 @@ export default function Main() {
   return (
     <Box>
       <Box ml={2} my={2}>
-        <SearchBar />
+        <SearchBar value={query} onChange={handleChange} onClear={handleClear}/>
       </Box>
       <Box my={2}>
         <RestaurantList restaurants={restaurants}/>
