@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="App">
       <h1>test</h1>
-      {foods.map((food)=>(<p1>{food.address} {food.city}</p1>))}
       <Main/>
     </div>
   );
